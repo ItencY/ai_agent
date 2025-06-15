@@ -24,7 +24,7 @@ def main():
 def generate_content(client, messages):
     response = client.models.generate_content(
     model="gemini-2.0-flash-001", contents=messages
-)
+    )
     print("Response:")
     print(response.text)
 
