@@ -8,7 +8,6 @@ def main():
     load_dotenv()
 
     verbose = "--verbose" in sys.argv
-    args = [arg for arg in sys.argv[1:] if not arg.startswith("--")]
 
     if len(sys.argv) < 2:
         print("Prompt is not provided")
