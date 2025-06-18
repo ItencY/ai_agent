@@ -3,6 +3,7 @@ import sys
 from dotenv import load_dotenv
 from google import genai
 from google.genai import types
+from prompts import system_prompt
 
 def main():
     load_dotenv()
@@ -28,7 +29,7 @@ def main():
 
 def generate_content(client, messages, verbose):
     response = client.models.generate_content(
-    model="gemini-2.0-flash-001", contents=messages
+    model="gemini-2.0-flash-001", contents=messages, config=types.GenerateContentConfig(system_instruction=system_prompt)
     )
     if verbose:
         print("Prompt tokens:", response.usage_metadata.prompt_token_count)
