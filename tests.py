@@ -1,10 +1,15 @@
-from functions.get_files_info import get_files_info
+from functions.get_files_info import get_file_content
 
-def run_tests():
-    print(get_files_info("calculator", "."))
-    print(get_files_info("calculator", "pkg"))
-    print(get_files_info("calculator", "/bin"))  # Should return an error
-    print(get_files_info("calculator", "../"))   # Should return an error
+def test():
+    result = get_file_content("calculator", "main.py")
+    print(result)
+
+    result = get_file_content("calculator", "pkg/calculator.py")
+    print(result)
+
+    result = get_file_content("calculator", "/bin/cat")
+    print(result)
+
 
 if __name__ == "__main__":
-    run_tests()
+    test()
